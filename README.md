@@ -1,6 +1,5 @@
 #clearlog
 
-
 clearlog is a convenience logger for node, written to help produce human-readable logs, separate from cluttered stdout. Nothing fancy.
 
 The output is whatever you want it to be, preceeded by a custom timestamp and importance marker then appended to the log file.
