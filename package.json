@@ -1,0 +1,28 @@
+{
+  "name": "clearlog",
+  "version": "0.1.0",
+  "description": "convenience logger for node, written to help produce human-readable logs",
+  "main": "cl.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KAndersonUS/clearlog.git"
+  },
+  "keywords": [
+    "logging",
+    "logger",
+    "log",
+    "logs",
+    "append"
+  ],
+  "author": "Kyle Anderson <mail@kyleanderson.us> (http://kyleanderson.us/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KAndersonUS/clearlog/issues"
+  },
+  "homepage": "https://github.com/KAndersonUS/clearlog"
+}

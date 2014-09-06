@@ -1,3 +1,5 @@
+// jasmine spec for dateString()
+
 describe("dateString", function () {
 	var now = new Date();
 	// then = July 4, 1776 9:05:03am
