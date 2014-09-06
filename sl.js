@@ -1,11 +1,18 @@
 var fs = require('fs');
+var dateString = require('./dateString.js');
 
-// Example: var sl = require('sl')({[path], [filename], [timestring], [webView]})
+// Example: var sl = require('sl')({[path], [timestring], [color]})
 //			sl("This is what's going to print.")		//not important
 //			sl("This is what's going to print.", true)	//important
 
 module.exports = function (config) {
 	// check config object, set defaults, etc etc.
+	config.path = (config.hasOwnProperty('path') ? config.path : process.cwd() + 'simple.log');
+	config.timestring = (config.hasOwnProperty('timestring') ? config.timestring : "dd/MM/yy HH:mm");
+
+//	fs.open(config.path, 'r', function (err, fd) {
+//		// should we test that the provided path exists, or just append away?
+//	});
 
 	return function (message, important) {
 		// the workhorse that's called in code
@@ -20,13 +27,13 @@ module.exports = function (config) {
 
 		if (message) {
 			var now = new Date();
-			var timestamp = now.getDate() + '/' + now.getMonth() + '/' + now.getFullYear().toString().substring(2,4) + ' ' + ((now.getHours() < 10) ? '0'+now.getHours() : now.getHours()) + ':' + ((now.getMinutes() < 10) ? '0'+now.getMinutes() : now.getMinutes());
+			var timestamp = dateString(now, config.timestring);
 			if (important) {
 				message = timestamp + " |!| " + message + "\r\n";
-				fs.appendFileSync(process.cwd() + '/logs/simple.log', message);
+				fs.appendFileSync(config.path, message);
 			} else {
 				message = timestamp + " | | " + message + "\r\n";
-				fs.appendFile(process.cwd() + '/logs/simple.log', message, function (err) {
+				fs.appendFile(config.path, message, function (err) {
 					if (err) {
 						throw err;
 					}
@@ -35,14 +42,3 @@ module.exports = function (config) {
 		}
 	}
 };
-
-// TODO:
-// module config object, including save path and filename, maybe a time format string?
-//// multiple logs? just define multiple sl vars
-// web viewer -> https + auth
-//// web viewer would just read a file, not a database
-//// themes
-////// color coding for important?
-
-// tailr
-//// tail multiple files on one page
