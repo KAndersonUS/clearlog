@@ -1,6 +1,5 @@
 #clearlog
 
-
 clearlog is a convenience logger for node, written to help produce human-readable logs, separate from cluttered stdout. Nothing fancy.
 
 The output is whatever you want it to be, preceeded by a custom timestamp and importance marker then appended to the log file.
@@ -37,6 +36,7 @@ require('cl') takes an optional object specifying the log's location and desired
 ####Timestamp formatting
 Inspired by but not borrowed from [Angular.js' date filter](https://docs.angularjs.org/api/ng/filter/date).
 
+####Importance
 Marking a log entry as important will perform a sync append to the log file - useful for events like `process.on('exit')`.
 
 
