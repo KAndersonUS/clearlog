@@ -1,6 +1,6 @@
 #clearlog
 
-clearlog is a convenience logger for node, written to help produce human-readable logs, separate from cluttered stdout. Nothing fancy.
+clearlog is a convenience logger for node, written to help produce clear, human-readable logs, separate from cluttered stdout. Nothing fancy.
 
 The output is whatever you want it to be, preceeded by a custom timestamp and importance marker then appended to the log file.
 
@@ -24,7 +24,7 @@ cl("Log anything important.", true);
 ```
 
 ###Notes
-require('cl') takes an optional object specifying the log's location and desired timestamp format.
+`require('clearlog')` takes an optional object specifying the log's location and desired timestamp format.
 ####Default values
 
 ```javascript
