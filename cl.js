@@ -16,7 +16,7 @@ module.exports = function (config) {
 	config.path = (config.hasOwnProperty('path') ? config.path : process.cwd() + 'clear.log');
 	config.timestring = (config.hasOwnProperty('timestring') ? config.timestring : "dd/MM/yy HH:mm");
 
-	fs.open(process.cwd() + 'test', 'r', function (err, fd) {
+	fs.open(config.path, 'r', function (err, fd) {
 		console.log(err + fd);
 		if (err && err.toString().match(/ENOENT/)) {
 			console.log("cl |!| log path " + err.toString().match(/\'(.*)\'/)[0] + " doesn't exist yet but will be created the first time" +
